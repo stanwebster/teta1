@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ing-ext
+  annotations:
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nginx-ing.student1-1-12.kube.devops-teta.ru
+      http:
+        paths:
+          - backend:
+              service:
+                name: teta-service
+                port:
+                  number: 8080
+            path: /
+            pathType: ImplementationSpecific
