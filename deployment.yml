@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teta-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: teta-app
+  strategy:
+    type: "Recreate"
+  template:
+    metadata:
+      labels:
+        app: teta-app
+    spec:
+      containers:
+        - name: podinfo
+          image: stefanprodan/podinfo:6.6.2
+          resources:
+            requests:
+              memory: "100Mi"
+              cpu: 100m
+            limits:
+              memory: "100Mi"
+              cpu: 100m

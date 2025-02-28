@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teta-config
+data:
+  SOME_KEY: "SOME_VALUE"
+  ANOTHER_KEY: "ANOTHER_VALUE"
+
+
